@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "./Signin.css";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Signin = () => {
-  const location = useLocation();
-  const navigate = useNavigate(); 
-  const passedEmail = location.state?.email || "";
+const Signin = ({ setIsLoggedIn }) => {
+  const navigate = useNavigate();
 
-  const [form, setForm] = useState({ email: passedEmail, password: "" });
+  const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState({});
 
-  const saveToLocalStorage = (key, value) => {
-    localStorage.setItem(key, JSON.stringify(value));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
-  const validation = () => {
+  const validate = () => {
     const newError = {};
     if (!form.email) newError.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(form.email)) newError.email = "Invalid email format";
@@ -26,29 +25,29 @@ const Signin = () => {
       else if (!/[A-Z]/.test(form.password)) newError.password = "Must include at least one uppercase letter";
       else if (!/[!@#$%&*]/.test(form.password)) newError.password = "Must include at least one special character (!@#$%&*)";
     }
-
     return newError;
   };
 
-  const handle = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
-  };
-
-  const handleSub = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const validationError = validation();
+    const validationErrors = validate();
 
-    if (Object.keys(validationError).length === 0) {
-      saveToLocalStorage("userData", form);
+    if (Object.keys(validationErrors).length === 0) {
+      // Save to localStorage
+      localStorage.setItem("userData", JSON.stringify(form));
       localStorage.setItem("isLoggedIn", "true");
 
+      // Update App state
+      setIsLoggedIn(true);
+
+      // Clear form
       setForm({ email: "", password: "" });
       setError({});
 
-      navigate("/watch");
+      // Navigate to homepage
+      navigate("/homepage");
     } else {
-      setError(validationError);
+      setError(validationErrors);
     }
   };
 
@@ -60,30 +59,28 @@ const Signin = () => {
 
       <div className='card'>
         <h3>SIGN IN</h3>
-        <form onSubmit={handleSub}>
+        <form onSubmit={handleSubmit}>
           <div className='input-box'>
             <input
               type="email"
-              id="email"
               name="email"
               placeholder=" "
               value={form.email}
-              onChange={handle}
+              onChange={handleChange}
             />
-            <label htmlFor="email">Email</label>
+            <label>Email</label>
             {error.email && <p className="error">{error.email}</p>}
           </div>
 
           <div className='input-box'>
             <input
               type="password"
-              id="password"
               name="password"
               placeholder=" "
               value={form.password}
-              onChange={handle}
+              onChange={handleChange}
             />
-            <label htmlFor="password">Password</label>
+            <label>Password</label>
             {error.password && <p className="error">{error.password}</p>}
           </div>
 
@@ -96,7 +93,7 @@ const Signin = () => {
         </form>
 
         <p className='signup-text'>
-          New to Netflix? <Link to="/log">Sign Up Now</Link>
+          New to Netflix? <Link to="/">Sign Up Now</Link>
         </p>
 
         <p className='recaptcha'>

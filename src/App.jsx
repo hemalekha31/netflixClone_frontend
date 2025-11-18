@@ -29,7 +29,7 @@ const allData = [...Moviesdata, ...Tvdata, ...Newmoviesdata];
     <HashRouter>
       <Routes>
         {/* Public routes */}
-        <Route path="/" element={<Login />} />
+        <Route path="/log" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
         <Route
           path="/account"

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate, HashRouter } from "react-router-dom";
 import Login from "./pages/Login";
 import Signin from "./pages/Signin";
 import Watch from "./pages/Watch";
@@ -26,7 +26,7 @@ function App() {
 const allData = [...Moviesdata, ...Tvdata, ...Newmoviesdata];
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         {/* Public routes */}
         <Route path="/" element={<Login />} />
@@ -83,7 +83,7 @@ const allData = [...Moviesdata, ...Tvdata, ...Newmoviesdata];
         <Route path="/movie/:id" element={<Moviedetails allData={allData}/>}/>
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+.account-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: white;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+}
+
+.netflix-logo {
+  color: #e50914;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 12px 0;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar li:hover {
+  color: #e50914;
+}
+
+.sidebar .active {
+  font-weight: bold;
+}
+
+/* Main Content */
+.account-main {
+  flex: 1;
+  padding: 40px 60px;
+  background-color: #fff;
+}
+
+.account-main h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.subtext {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Membership Box */
+.membership-box {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  width: 400px;
+}
+
+.member-tag {
+  background-color: #7c56da;
+  color: white;
+  display: inline-block;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.gpay-logo {
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.manage-link {
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.manage-link:hover {
+  color: #7c56da;
+}
+
+/* Quick Links */
+.quick-links {
+  width: 400px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.quick-item {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.quick-item:last-child {
+  border-bottom: none;
+}
+
+.quick-item:hover {
+  background-color: #f8f8f8;
+}

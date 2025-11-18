@@ -1,0 +1,183 @@
+/* General navbar styling */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 0 40px;
+  z-index: 1000;
+  transition: top 0.4s ease, background 0.4s ease;
+}
+
+/* Navbar when scrolling */
+.nav.scrolled {
+  background: #141414;
+}
+
+/* Netflix logo */
+.nav_logo {
+  width: 120px;
+  cursor: pointer;
+}
+
+/* Left nav content */
+.nav_content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-shrink: 0;
+}
+
+.nav_content ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.nav_content ul li {
+  color: #e5e5e5;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav_content ul li:hover {
+  color: #fff;
+}
+
+/* Right section */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-right p {
+  color: #e5e5e5;
+  font-size: 0.9rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+/* Profile container */
+.nav-profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Avatar image */
+.nav-profile img:first-child {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+}
+
+/* Caret icon */
+.caret-icon {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  filter: invert(100%);
+}
+
+/* Dropdown menu */
+.dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #191919;
+  padding: 12px 16px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Dropdown items */
+.dropdown p {
+  font-size: 13px;
+  color: #e5e5e5;
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.dropdown p:hover {
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .nav_content ul {
+    display: none;
+  }
+
+  .nav_logo {
+    width: 100px;
+  }
+
+  .nav-right {
+    gap: 12px;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.accbut {
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  color: white;
+  text-align: left;
+  margin-left: -5px;
+}
+.accbut:hover{
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  background: #000;
+  border: 1px solid #666;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  outline: none;
+  margin-left: 10px;
+  width: 150px;
+  transition: width 0.3s ease;
+}
+
+.search-input:focus {
+  width: 220px;
+}

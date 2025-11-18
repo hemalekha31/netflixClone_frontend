@@ -1,0 +1,83 @@
+/* Profilepage.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #141414;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page container */
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header styling with background image and gradient */
+.profile-header {
+  background: linear-gradient(
+      rgba(20, 20, 20, 0.8), 
+      rgba(20, 20, 20, 0.8)
+    ),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/36609f8c-2d5f-4e7f-baa3-6209b0c88c42/f2eeb8e2-3803-4a61-bcc4-7896f57ab59f/IN-en-20251120-popsignuptwoweeks-perspective_alpha_website_large.jpg')
+      no-repeat center center/cover;
+  padding: 60px 20px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 1.2px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+  flex-shrink: 0;
+}
+
+.profile-header p {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+/* Footer styling */
+.profile-footer {
+  margin-top: auto;
+  background-color: #000;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.footer-content h4 {
+  color: #e50914;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.footer-content nav {
+  margin-bottom: 15px;
+}
+
+.footer-content nav a {
+  color: #666;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.footer-content nav a:hover {
+  color: #e50914;
+  text-decoration: underline;
+}
+
+.footer-content p {
+  font-size: 0.85rem;
+  color: #444;
+}

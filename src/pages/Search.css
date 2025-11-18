@@ -1,0 +1,69 @@
+/* Main container */
+.search-results {
+  padding: 120px 40px 40px;
+  background-color: #141414;
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Heading */
+.search-results h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* No results text */
+.search-results p {
+  font-size: 18px;
+  color: #bbb;
+}
+
+/* Grid for movie cards */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 20px;
+}
+
+/* Movie card design */
+.movie-card {
+  background: #1c1c1c;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 5px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.movie-card:hover {
+  transform: scale(1.07);
+}
+
+/* Images */
+.movie-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Title */
+.movie-card p {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .search-results {
+    padding: 100px 20px 20px;
+  }
+
+  .movie-card img {
+    height: 200px;
+  }
+}

@@ -29,7 +29,7 @@ function App() {
     <HashRouter>
       <Routes>
         {/* Public routes */}
-        <Route path="/" element={<Login />} />
+        <Route path="/log" element={<Login />} />
         <Route
           path="/signin"
           element={<Signin setIsLoggedIn={setIsLoggedIn} />}

@@ -93,7 +93,7 @@ const Signin = ({ setIsLoggedIn }) => {
         </form>
 
         <p className='signup-text'>
-          New to Netflix? <Link to="/">Sign Up Now</Link>
+          New to Netflix? <Link to="/log">Sign Up Now</Link>
         </p>
 
         <p className='recaptcha'>

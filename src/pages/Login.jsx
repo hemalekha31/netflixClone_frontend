@@ -2,18 +2,22 @@ import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn") === "true";
-    console.log("isLoggedIn:", loggedIn);
-
     if (loggedIn) {
       navigate("/watch");
     }
   }, [navigate]);
+
+  const handleGetStarted = () => {
+    // Save email in localStorage to prefill Signin
+    localStorage.setItem("tempEmail", email);
+    navigate("/signin");
+  };
 
   return (
     <div className="login-cont">
@@ -41,16 +45,13 @@ const Login = () => {
         <div className="input-boxs">
           <input
             type="email"
-            name="email"
-            id="email"
-            className="email"
             placeholder="Email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Link to="/signin" state={{ email }}>
-            <button className="get-btn">Get Started &gt;</button>
-          </Link>
+          <button className="get-btn" onClick={handleGetStarted}>
+            Get Started &gt;
+          </button>
         </div>
       </div>
     </div>

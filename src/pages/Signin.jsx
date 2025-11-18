@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Signin.css";
 import { Link, useNavigate } from 'react-router-dom';
 
 const Signin = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({ email: "", password: "" });
+  // Prefill email from tempEmail saved in Login
+  const savedEmail = localStorage.getItem("tempEmail") || "";
+
+  const [form, setForm] = useState({ email: savedEmail, password: "" });
   const [error, setError] = useState({});
+
+  useEffect(() => {
+    if (savedEmail) {
+      setForm((prev) => ({ ...prev, email: savedEmail }));
+      localStorage.removeItem("tempEmail"); // clear temp email
+    }
+  }, [savedEmail]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,18 +43,14 @@ const Signin = ({ setIsLoggedIn }) => {
     const validationErrors = validate();
 
     if (Object.keys(validationErrors).length === 0) {
-      // Save to localStorage
       localStorage.setItem("userData", JSON.stringify(form));
       localStorage.setItem("isLoggedIn", "true");
 
-      // Update App state
       setIsLoggedIn(true);
 
-      // Clear form
       setForm({ email: "", password: "" });
       setError({});
 
-      // Navigate to homepage
       navigate("/homepage");
     } else {
       setError(validationErrors);

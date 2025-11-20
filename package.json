@@ -2,7 +2,7 @@
   "name": "netflix",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://hemalekha31.github.io/netflix_clone_frontend_",
+  "homepage": "https://hemalekha31.github.io/netflixClone_frontend",
   "type": "module",
   "scripts": {
     "dev": "vite",

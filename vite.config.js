@@ -8,7 +8,7 @@ import react from '@vitejs/plugin-react'
     sourcemap: false,
   },
   plugins: [react()],
-  base:"/netflix_clone_frontend_"
+  base:"/netflix_clone_frontend_/"
 
 });
 

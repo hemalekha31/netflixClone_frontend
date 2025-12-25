@@ -33,6 +33,9 @@ const Login = ({ setIsLoggedIn }) => {
           </Link>
         </div>
       </div>
+<p style={{ textAlign: "center", fontSize: "12px", color: "#999" }}>
+  Demo project only. Not affiliated with Netflix.
+</p>
 
       <div className="cont">
         <h2>
